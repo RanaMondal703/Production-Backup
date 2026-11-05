@@ -1,0 +1,2 @@
+30 4 * * * bash /scripts/backup.sh >> /proc/1/fd/1 2>&1
+0 7 * * 0 bash /scripts/maintenance.sh >> /proc/1/fd/1 2>&1

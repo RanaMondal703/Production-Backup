@@ -1,0 +1,10 @@
+/source/apps/data/postgres
+/source/apps/data/rustfs
+/source/apps/data/valkey
+/source/apps/data/openinary/apps
+/source/apps/data/openinary/temp
+nginx-logs
+nginx-lib
+supervisor-logs
+/source/apps/registry/data
+/staging/restore

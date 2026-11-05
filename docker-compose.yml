@@ -1,0 +1,32 @@
+name: backup
+
+services:
+  backup:
+    build: .
+    container_name: backup
+    # fixed hostname so restic recognises the previous snapshot (incremental runs)
+    hostname: aci-prod
+    init: true
+    restart: unless-stopped
+    environment:
+      TZ: ${TZ:-UTC}
+    volumes:
+      - /opt/apps:/source/apps:ro
+      - ./scripts:/scripts:ro
+      - ./.env:/config/.env:ro
+      - ./staging:/staging
+      - restic-cache:/root/.cache/restic
+    networks:
+      - shared_net
+    logging:
+      driver: json-file
+      options:
+        max-size: "20m"
+        max-file: "5"
+
+volumes:
+  restic-cache:
+
+networks:
+  shared_net:
+    external: true
