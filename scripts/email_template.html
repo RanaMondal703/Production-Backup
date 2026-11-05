@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Status email</title>
+</head>
+<body style="margin:0; padding:0; background:#ffffff;">
+<table role="presentation" width="720" cellpadding="0" cellspacing="0" border="0" style="width: 720px; max-width: 100%; background: #ffffff; font-family: Arial, Helvetica, sans-serif; color: #222222;">
+  <tr>
+    <td style="padding: 32px 40px 0 40px;">
+      <h1 style="margin: 0; font-size: 26px; font-weight: 700; color: {{ACCENT}};">{{TITLE}}</h1>
+      <p style="margin: 8px 0 0 0; font-size: 14px; color: #555555;">{{ORG_NAME}} &middot; {{SUBTITLE}}</p>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding: 26px 40px 0 40px;">
+      <h2 style="margin: 0 0 12px 0; font-size: 15px; font-weight: 700;">Backups</h2>
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="font-size: 13px;">
+        <tr>
+          <td width="150" style="padding: 0 0 12px 0; color: #555555; vertical-align: top;">Status</td>
+          <td style="padding: 0 0 12px 0; font-weight: 700; vertical-align: top;">{{STATUS}}</td>
+        </tr>
+        <tr>
+          <td width="150" style="padding: 0; color: #555555; vertical-align: top;">Last successful backup</td>
+          <td style="padding: 0; font-weight: 700; vertical-align: top;">{{LAST_BACKUP}}</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding: 26px 40px 0 40px;">
+      <h2 style="margin: 0 0 12px 0; font-size: 15px; font-weight: 700;">Snapshot Details</h2>
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="font-size: 13px;">
+        <tr>
+          <td width="94" style="padding: 0 0 12px 0; color: #555555; vertical-align: top;">Snapshot ID</td>
+          <td style="padding: 0 0 12px 0; font-weight: 700; vertical-align: top;">{{SNAPSHOT_ID}}</td>
+        </tr>
+        <tr>
+          <td width="94" style="padding: 0 0 12px 0; color: #555555; vertical-align: top;">Storage used</td>
+          <td style="padding: 0 0 12px 0; font-weight: 700; vertical-align: top;">{{STORAGE_USED}}</td>
+        </tr>
+        <tr>
+          <td width="94" style="padding: 0 0 12px 0; color: #555555; vertical-align: top;">Tags</td>
+          <td style="padding: 0 0 12px 0; font-weight: 700; vertical-align: top;">{{TAGS}}</td>
+        </tr>
+        <tr>
+          <td width="94" style="padding: 0; color: #555555; vertical-align: top;">Paths</td>
+          <td style="padding: 0; font-weight: 700; vertical-align: top;">{{PATHS}}</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding: 26px 40px 32px 40px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td style="padding-top: 14px; border-top: 1px solid #e6e6e6; font-size: 11px; color: #666666;">Automated report from the {{ORG_NAME}} server ({{HOST_LABEL}}). Generated {{GENERATED}}.</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
