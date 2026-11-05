@@ -1,9 +1,13 @@
-# ACI Backup
+# Production Backup
 
-Containerized nightly backup for ACI production: exports RustFS buckets, snapshots a
-consistent copy of the Openinary SQLite DB, then backs up everything (apps data + staging
-export) to a restic repository. Sends an HTML email report and pings a healthcheck URL on
-success/failure.
+Containerized nightly backup for a production environment: exports RustFS buckets,
+snapshots a consistent copy of the Openinary SQLite DB, then backs up everything (apps
+data + staging export) to a restic repository. Sends an HTML email report and pings a
+healthcheck URL on success/failure.
+
+Host/organization names below (`aci-prod`, `Aircargo`, etc.) are just the defaults baked
+into this particular deployment — rename them for your own environment via
+`MAIL_ORG_NAME`, `MAIL_HOST_LABEL`, and the `hostname` in `docker-compose.yml`.
 
 ## How it works
 
@@ -15,7 +19,8 @@ success/failure.
 - `scripts/common.sh` loads `/config/.env`, and provides logging, healthcheck pings
   (`ping`), size formatting, and SMTP email helpers (`mail` / `mail_html`).
 - `scripts/backup.sh`:
-  1. Syncs each RustFS bucket in `RUSTFS_BUCKETS` to `/staging/rustfs/<bucket>` via `rclone`.
+  1. Syncs each RustFS bucket in `RUSTFS_BUCKETS` to `/staging/rustfs/<bucket>` via
+     `rclone`.
   2. Takes a consistent copy of Openinary's `auth.db` via `sqlite3 .backup` (falls back to
      a raw file copy if that fails).
   3. Runs `restic backup` over `/source/apps` and `/staging`, excluding paths listed in
